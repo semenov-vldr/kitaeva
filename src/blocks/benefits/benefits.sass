@@ -1,0 +1,45 @@
+.benefits
+
+  &__body
+    border: 1px solid #E1E1E1
+    padding: 80px
+    @include tablet
+      padding: 60px 32px 96px
+    @include mobile
+      padding: 56px 20px
+
+  &__title
+    text-align: center
+    font-size: 96px
+    color: $dark-brown
+    @include tablet
+      font-size: 64px
+    @include mobile
+      font-size: 48px
+    @media (max-width: 400px)
+      font-size: 32px
+
+  &__content
+    display: grid
+    grid-template-columns: repeat(2, 1fr)
+    gap: 32px
+    @include tablet
+      grid-template-columns: 1fr
+
+    p
+      text-wrap: balance
+      font-size: 20px
+      @include mobile
+        font-size: 12px
+    p + p
+      margin-top: 32px
+
+  &__link
+    margin-top: 20px
+    width: 80%
+    @include tablet
+      width: 100%
+      margin-top: 0
+    @include mobile
+      width: 90%
+      margin: 0 auto

@@ -1,0 +1,73 @@
+.footer
+  padding: 70px 0
+
+  &__container
+    display: flex
+    flex-direction: column
+    align-items: center
+    gap: 70px
+    @include tablet
+      gap: 60px
+
+  &__logo
+    max-width: 900px
+    @include tablet
+      max-width: 470px
+    @include mobile
+      max-width: 240px
+
+  &-nav
+    &__list
+      display: flex
+      align-items: center
+      flex-wrap: wrap
+      justify-content: center
+      gap: 56px
+      @include tablet
+        gap: 24px
+
+    &__link
+      white-space: nowrap
+      transition: $transition
+      text-transform: uppercase
+      font-weight: 500
+      color: $dark-brown
+      @include mobile
+        font-weight: 600
+        font-size: 12px
+      &:hover
+        text-decoration: underline
+
+  &__contacts
+    display: flex
+    align-items: center
+    gap: 60px
+
+  &__bottom
+    margin-top: 20px
+    display: flex
+    justify-content: space-between
+    gap: 32px
+    width: 100%
+    @include tablet
+      flex-direction: column
+      margin-top: 0
+      justify-content: center
+      gap: 120px
+    @include mobile
+      gap: 16px
+
+  &__policy,
+  &__copyright
+    display: flex
+    flex-direction: column
+    gap: 32px
+    @media (min-width: $width-tablet)
+      & > *:nth-child(1)
+        text-align: left
+      & > *:nth-child(2)
+        text-align: right
+    @include tablet
+      gap: 12px
+      text-align: center
+

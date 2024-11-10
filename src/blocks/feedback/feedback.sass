@@ -1,0 +1,75 @@
+.feedback
+
+  &__img
+    width: 100%
+    max-width: 1600px
+    padding: 0
+
+
+  &__content
+    position: relative
+    max-width: 650px
+    margin: -350px auto 0
+    padding: 60px
+    display: flex
+    flex-direction: column
+    gap: 32px
+    background-color: #fff
+    @include tablet
+      max-width: 590px
+      margin-top: -250px
+      padding: 60px 28px 28px
+    @media (max-width: 1000px)
+      margin-top: -150px
+    @include mobile
+      margin-top: -40px
+
+  &__header
+    display: flex
+    flex-direction: column
+    gap: 32px
+
+  &__title
+    @include fontSize(24, 80)
+    color: #111111
+    line-height: 1
+    text-wrap: balance
+    @include tablet
+      text-align: center
+
+  &__subtitle
+    text-transform: uppercase
+    letter-spacing: 5px
+    color: $dark-brown
+    font-size: 24px
+    font-weight: 500
+    text-wrap: balance
+    @include tablet
+      font-size: 20px
+      text-align: center
+    @include mobile
+      font-size: 14px
+
+  &__desc
+    font-size: 20px
+    @include mobile
+      font-size: 12px
+
+
+
+  &__form
+    display: flex
+    flex-direction: column
+    gap: 20px
+    width: 100%
+    margin: 0 auto
+
+    textarea
+      resize: none
+    button
+      width: 100%
+
+    p
+      font-size: 14px
+      text-wrap: balance
+      text-align: center

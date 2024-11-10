@@ -1,0 +1,45 @@
+.emotions
+
+  &__body
+    padding: 70px 150px 140px
+    @include tablet
+      padding: 70px 60px
+    @include mobile
+      padding: 60px 40px 48px
+
+  &__title
+    text-align: center
+  &__list
+    display: grid
+    grid-template-columns: repeat(auto-fill, 230px)
+    gap: 60px
+    justify-content: center
+    @include tablet
+      gap: 32px
+
+  &__item
+    position: relative
+    width: 230px
+    height: 284px
+    padding: 20px 28px
+    display: flex
+    align-items: flex-end
+    user-select: none
+    &-img
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+    &-caption
+      display: inline-block
+      position: relative
+      z-index: 1
+      text-transform: uppercase
+      font-size: 14px
+      background-color: $secondary
+      border-radius: 20px
+      padding: 4px 32px
+      width: 100%
+      text-align: center
+      color: #000

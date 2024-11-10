@@ -1,0 +1,34 @@
+header.header
+    .container.header__container
+        a.header__logo(href='./')
+            include ../../img/logo.svg
+
+        nav.header__nav.header-nav
+            ul.header-nav__list
+                li.header-nav__item
+                    a.header-nav__link(href='#about') Обо мне
+                li.header-nav__item
+                    a.header-nav__link(href='#services') Группы онлайн
+                li.header-nav__item
+                    a.header-nav__link(href='#services') Цены
+                li.header-nav__item
+                    a.header-nav__link(href='#services') Услуги
+                li.header-nav__item
+                    a.header-nav__link(href='##') Контакты
+                li.header-nav__item
+                    a.header-nav__link(href='#feedback') Записаться
+
+            address.header-contacts
+                a(href="https://wa.me/+79268470012" target="_blank" title="WhatsApp")
+                    img(src="./assets/img/icons/whatsapp.png")
+                a(href="https://vk.com/elenakitaevapsy" target="_blank" title="VK")
+                    img(src="./assets/img/icons/vk.png")
+                a(href="https://t.me/kitaevaelen1" target="_blank" title="Telegram")
+                    img(src="./assets/img/icons/tg.png")
+
+
+
+        button(type="button").header__burger
+            span.header__burger-line.header__burger-line-1
+            span.header__burger-line.header__burger-line-2
+            span.header__burger-line.header__burger-line-3

@@ -1,0 +1,118 @@
+.services
+  text-align: center
+
+  &__header
+    margin-bottom: 60px
+
+  &__title
+    color: #313131
+    margin-bottom: 24px
+    font-size: 80px
+    @include mobile
+      font-size: 40px
+
+  &__subtitle
+    color: $primary
+    text-transform: uppercase
+    letter-spacing: 4px
+    font-size: 24px
+    @include mobile
+      font-size: 20px
+
+
+  &__list
+    display: grid
+    grid-template-columns: repeat(3, 1fr)
+    gap: 60px 18px
+    @include tablet
+      grid-template-columns: repeat(2, 1fr)
+    @media (max-width: 800px)
+      gap: 32px
+      grid-template-columns: 1fr
+
+
+  &-item
+    border: 1px solid #E1E1E1
+    box-shadow: 0 4px 4px 0 rgba(#000, 0.25)
+    display: flex
+    flex-direction: column
+    align-items: center
+    gap: 40px
+    padding: 140px 32px
+    @media (max-width: 800px)
+      max-width: 500px
+      margin: 0 auto
+      width: 100%
+    @include mobile
+      max-width: 320px
+      padding: 80px 16px
+      gap: 24px
+
+    &__title
+      color: $primary
+      font-style: italic
+      font-size: 24px
+      text-transform: uppercase
+      @include mobile
+        font-size: 16px
+
+    &__price
+      font-size: 80px
+      font-family: "Playfair Display", sans-serif
+      font-style: italic
+      color: #313131
+      @include mobile
+        font-size: 40px
+
+    &__options
+      display: flex
+      flex-direction: column
+      gap: 6px
+      font-size: 19px
+      text-align: left
+      width: fit-content
+      margin: 0 auto
+      li
+        position: relative
+        display: flex
+        align-items: center
+        gap: 8px
+        color: #565656
+        font-style: italic
+        &::before
+          content: ""
+          display: inline-block
+          background-image: url("../img/icons/check.svg")
+          width: 15px
+          height: 11px
+          background-repeat: no-repeat
+          background-size: cover
+          background-position: center
+    &__button
+      font-size: 19px
+      text-transform: initial
+      width: 100%
+      max-width: 260px
+      min-height: 70px
+      padding: 12px 64px
+      font-weight: 500
+      @include mobile
+        min-height: 48px
+        max-width: 170px
+        padding: 4px 16px
+
+    &__hint
+      font-style: italic
+      color: #000
+      font-size: 14px
+      line-height: 1.6
+
+
+  &__note
+    font-size: 36px
+    margin-top: 32px
+    font-weight: 500
+    @include tablet
+      font-size: 24px
+    @include mobile
+      font-size: 16px
