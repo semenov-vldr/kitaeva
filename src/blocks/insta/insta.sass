@@ -1,0 +1,25 @@
+.insta
+
+  &__container
+
+
+  &__list
+    border: 1px solid #E1E1E1
+    padding: 60px
+    display: grid
+    grid-template-columns: repeat(3, 1fr)
+    gap: 40px
+    width: fit-content
+    margin: 0 auto
+    @include tablet
+      grid-template-columns: 1fr
+      gap: 32px
+    @include  mobile
+      gap: 12px
+      padding: 32px 50px
+
+    img
+      margin: 0 auto
+      width: 380px
+      @include  mobile
+        width: 160px
