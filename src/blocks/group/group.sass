@@ -1,0 +1,93 @@
+.group
+
+  &__body
+    display: grid
+    grid-template-columns: 1fr 1fr
+    gap: 80px
+    @include tablet
+      grid-template-columns: 1fr
+      gap: 32px
+
+  &__content
+    display: flex
+    flex-direction: column
+    gap: 32px
+
+  &__title
+    font-size: 40px
+    text-align: center
+    background-color: $secondary
+    padding: 32px
+    font-weight: 600
+    @include tablet
+      font-size: 36px
+    @include mobile
+      font-size: 24px
+      padding: 24px 16px
+
+  &__included-list
+    display: flex
+    flex-direction: column
+    gap: 32px
+
+  &__included-item
+    position: relative
+    padding: 32px
+    background-color: $secondary
+    display: flex
+    gap: 32px
+    @include tablet
+      gap: 16px
+    @include mobile
+      gap: 12px
+      padding: 24px 16px
+    &::before
+      content: ""
+      display: inline-block
+      background-image: url("../img/icons/check-group.svg")
+      background-position: center
+      background-size: contain
+      background-repeat: no-repeat
+      width: 60px
+      height: 60px
+      flex: 0 0 60px
+      @include tablet
+        width: 50px
+        height: 50px
+        flex: 0 0 50px
+      @include mobile
+        width: 40px
+        height: 40px
+        flex: 0 0 40px
+
+
+    &-title
+      font-size: 36px
+      display: flex
+      align-items: start
+      text-wrap: balance
+      @include tablet
+        font-size: 32px
+      @include mobile
+        font-size: 24px
+
+    &-text
+      font-size: 20px
+      font-style: italic
+      @include mobile
+        font-size: 12px
+
+  &__included-item-content
+    display: flex
+    flex-direction: column
+
+  &__link
+    width: 100%
+    margin: 0 auto
+    @include tablet
+      max-width: 90%
+
+  &__img
+    width: 100%
+    order: -1
+    max-width: 700px
