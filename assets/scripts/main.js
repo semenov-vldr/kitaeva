@@ -1,8 +1,8 @@
 "use strict";
 
 // Отправка данных формы в Телеграм
-var TOKEN = "6388509099:AAFIQyVlZ4MapEiXhH2vQJh8CyZFgFoJ_mA";
-var CHAT_ID = "-1002008090284";
+var TOKEN = "7703848769:AAG_m1epbfxmF4FNrcWrmCXumpKoedZdLuc";
+var CHAT_ID = "-1002250783806";
 var URL_API = "https://api.telegram.org/bot".concat(TOKEN, "/sendMessage");
 var forms = document.querySelectorAll("form.form");
 if (forms) {
@@ -12,29 +12,37 @@ if (forms) {
 }
 function sendMessageTelegram(evt) {
   evt.preventDefault();
-  var typeConnection = this.querySelector(".form__connection-fieldset input[type='radio']:checked");
-  var successFormMessage = this.querySelector('.form__message--success');
-  var errorFormMessage = this.querySelector('.form__message--error');
+  var successFormMessage = document.querySelector('#formMessageSuccess');
+  var errorFormMessage = document.querySelector('#formMessageError');
   function formSuccess() {
-    successFormMessage.classList.add('js-message-active');
+    successFormMessage.showModal();
   }
   function formError() {
-    errorFormMessage.classList.add('js-message-active');
+    errorFormMessage.showModal();
   }
-  var message = "<b>\u0417\u0430\u044F\u0432\u043A\u0430 \u0441 \u0441\u0430\u0439\u0442\u0430 ***:</b>\n";
-  message += "<b>\u0418\u043C\u044F:</b> ".concat(this.name.value, "\n");
-  message += "<b>\u0422\u0435\u043B\u0435\u0444\u043E\u043D:</b> ".concat(this.phone.value, "\n");
-  message += "<b>\u0421\u043F\u043E\u0441\u043E\u0431 \u0441\u0432\u044F\u0437\u0438:</b> ".concat(typeConnection.value, "\n");
+
+  //let message = `<b>Заявка с сайта Е.Китаевой:</b>\n`;
+  var message = "";
+  if (this.classList.contains("feedback__form")) {
+    message += "<b>\u0418\u043C\u044F:</b> ".concat(this.name.value, "\n");
+    message += "<b>\u0422\u0435\u043B\u0435\u0444\u043E\u043D:</b> ".concat(this.phone.value, "\n");
+    if (this.message.value) {
+      message += "<b>\u0421\u043E\u043E\u0431\u0449\u0435\u043D\u0438\u0435:</b> ".concat(this.message.value, "\n");
+    }
+  }
+  if (this.classList.contains("mailing__form")) {
+    message += "<b>\u041F\u043E\u0434\u043F\u0438\u0441\u043A\u0430 \u043D\u0430 \u043F\u043E\u0447\u0442\u0443:</b> ".concat(this.email.value, "\n");
+  }
   axios.post(URL_API, {
     chat_id: CHAT_ID,
     parse_mode: "html",
     text: message
   }).then(function () {
     console.log("Заявка отправлена");
-    //formSuccess();
+    formSuccess();
   })["catch"](function (err) {
     console.warn(err);
-    //formError();
+    formError();
   })["finally"](function () {
     console.log("Конец");
   });
@@ -65,6 +73,22 @@ function toggleBlockScrollBody() {
   }
 }
 ;
+"use strict";
+
+// Закрытие dialog по клику на backdrop
+function closeOnBackDropClick(_ref) {
+  var currentTarget = _ref.currentTarget,
+    target = _ref.target;
+  var dialogElement = currentTarget;
+  var isClickedOnBackDrop = target === dialogElement;
+  if (isClickedOnBackDrop) dialogElement.close();
+}
+var dialogElements = document.querySelectorAll("dialog");
+if (dialogElements) {
+  dialogElements.forEach(function (dialogElement) {
+    return dialogElement.onclick = closeOnBackDropClick;
+  });
+}
 "use strict";
 "use strict";
 
