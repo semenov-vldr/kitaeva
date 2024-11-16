@@ -1,6 +1,6 @@
 // Отправка данных формы в Телеграм
-const TOKEN = "6388509099:AAFIQyVlZ4MapEiXhH2vQJh8CyZFgFoJ_mA";
-const CHAT_ID = "-1002008090284";
+const TOKEN = "7703848769:AAG_m1epbfxmF4FNrcWrmCXumpKoedZdLuc";
+const CHAT_ID = "-1002250783806";
 const URL_API = `https://api.telegram.org/bot${ TOKEN }/sendMessage`;
 
 const forms = document.querySelectorAll("form.form");
@@ -11,24 +11,33 @@ if (forms) {
 function sendMessageTelegram (evt) {
   evt.preventDefault();
 
-  const typeConnection = this.querySelector(".form__connection-fieldset input[type='radio']:checked");
-  const successFormMessage = this.querySelector('.form__message--success');
-  const errorFormMessage = this.querySelector('.form__message--error');
+
+  const successFormMessage = document.querySelector('#formMessageSuccess');
+  const errorFormMessage = document.querySelector('#formMessageError');
 
   function formSuccess () {
-    successFormMessage.classList.add('js-message-active');
+    successFormMessage.showModal();
   }
 
   function formError () {
-    errorFormMessage.classList.add('js-message-active');
+    errorFormMessage.showModal();
   }
 
 
-  let message = `<b>Заявка с сайта ***:</b>\n`;
-  message += `<b>Имя:</b> ${this.name.value}\n`;
-  message += `<b>Телефон:</b> ${this.phone.value}\n`;
-  message += `<b>Способ связи:</b> ${typeConnection.value}\n`;
+  //let message = `<b>Заявка с сайта Е.Китаевой:</b>\n`;
+  let message = "";
 
+  if (this.classList.contains("feedback__form")) {
+    message += `<b>Имя:</b> ${this.name.value}\n`;
+    message += `<b>Телефон:</b> ${this.phone.value}\n`;
+    if (this.message.value) {
+      message += `<b>Сообщение:</b> ${this.message.value}\n`;
+    }
+  }
+
+  if (this.classList.contains("mailing__form")) {
+    message += `<b>Подписка на почту:</b> ${this.email.value}\n`;
+  }
 
 
   axios.post(URL_API, {
@@ -38,11 +47,11 @@ function sendMessageTelegram (evt) {
   })
     .then( () => {
       console.log("Заявка отправлена");
-      //formSuccess();
+      formSuccess();
     })
     .catch(err => {
       console.warn(err);
-      //formError();
+      formError();
     })
     .finally(() => {
       console.log("Конец");

@@ -1,0 +1,30 @@
+.form-message
+  flex-direction: column
+  gap: 16px
+  width: fit-content
+  padding: 24px 32px 32px
+  background-color: $secondary
+  color: $dark-brown
+  margin: auto
+  text-align: center
+  font-size: 24px
+  z-index: 3
+  box-shadow: rgba($dark-brown, 0.4) 0px 3px 8px
+  @include tablet
+    font-size: 20px
+    padding: 16px 24px 24px
+
+  &[open]
+    display: flex
+
+  &__close
+    font-size: 24px
+    font-weight: 600
+    margin-left: auto
+
+  a
+    text-decoration: underline
+
+  &--error
+    background-color: #ff775d
+    color: #fff
